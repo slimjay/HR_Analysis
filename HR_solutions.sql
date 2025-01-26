@@ -1,15 +1,18 @@
-1. SELECT gender, count(*)AS count
+1. --What is the gender breakdown of employees in the company? 
+SELECT gender, count(*)AS count
 FROM hr
 WHERE age >=18 AND termdate='0000-00-00'
 GROUP BY gender;
 
-2. SELECT race, COUNT(*) AS count
+2. --What is the race/ethnicity breakdown of employees in the company?
+SELECT race, COUNT(*) AS count
 FROM hr
 WHERE age >=18 AND termdate='0000-00-00'
 GROUP BY race
 ORDER BY count(*)DESC;
 
-3. SELECT
+3. --What is the age distribution of employees in the company?
+  SELECT
   min(age) AS youngest,
   max(age) AS oldest
 From hr
@@ -47,28 +50,33 @@ WHERE age>= 18 AND termdate='0000-00-00'
 GROUP BY age_group, gender
 ORDER BY age_group, gender;
 
-4. SELECT location, count(*) AS count
+4.--How many employees work at headquarters versus remote locations?
+SELECT location, count(*) AS count
 FROM hr
 WHERE age >= 18 AND termdate='0000-00-00'
 GROUP BY location;
 
-5. SELECT round(avg(datediff(termdate,hire_date))/365,0)AS avg_len_employ
+5. --What is the average length of employment for employees who have been terminated?
+SELECT round(avg(datediff(termdate,hire_date))/365,0)AS avg_len_employ
 FROM hr
 WHERE termdate <= curdate() AND termdate <> '0000-00-00'AND age >= 18
 
-6. SELECT department, gender, COUNT(*) AS count
+6. --How does the gender distribution vary across departments and job titles?
+SELECT department, gender, COUNT(*) AS count
 FROM hr
 WHERE age>= 18 AND termdate='0000-00-00'
 GROUP BY department, gender
 ORDER BY department;
 
-7. SELECT jobtitle, count(*) AS count
+7. --What is the distribution of job titles across the company?
+SELECT jobtitle, count(*) AS count
 FROM hr
 WHERE age >=18 AND termdate = '0000-00-00'
 GROUP BY jobtitle
 ORDER BY jobtitle DESC;
 
-8. SELECT department, 
+8. --Which department has the highest turnover rate?
+SELECT department, 
 total_count,
 terminated_count,
 terminated_count/total_count AS termination_rate
@@ -82,13 +90,15 @@ GROUP BY department
 )AS subquery
 ORDER BY termination_rate DESC
 
-9. SELECT location_state,COUNT(*)AS count
+9. --What is the distribution of employees across locations by city and state?
+SELECT location_state,COUNT(*)AS count
 FROM hr
 WHERE age >=18 AND termdate= '0000-00-00'
 GROUP BY location_state
 ORDER BY count DESC;
 
-10.SELECT 
+10. --How has the company's employee count changed over time based on hire and term dates?
+  SELECT 
    year,
    hires,
    terminations,
@@ -105,7 +115,8 @@ SELECT
    )AS subquery
 ORDER BY year ASC;
 
-11. SELECT department, round(avg(datediff(termdate,hire_date)/365),0) AS avg_tenure
+11. --What is the tenure distribution for each department?
+  SELECT department, round(avg(datediff(termdate,hire_date)/365),0) AS avg_tenure
 FROM hr
 WHERE age >=18 AND termdate= '0000-00-00' AND termdate<= curdate()
 GROUP BY department;
