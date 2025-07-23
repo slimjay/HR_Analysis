@@ -1,3 +1,6 @@
+# Objective
+The main objective of an HR analysis dashboard is to provide a clear, concise, and visually appealing overview of key HR metrics, enabling data-driven decision-making and strategic workforce management. It should offer insights into various aspects of the employee lifecycle, from recruitment and performance to engagement and turnover, helping HR professionals and leadership identify trends, pinpoint areas of concern, and ultimately optimize workforce management. 
+
 # HR_Analysis-Dashboard-MySQL-PowerBI
 ![HR_DASHBOARD_PIC](https://github.com/user-attachments/assets/89ee39a8-fbed-4e6b-915e-04b73215b3ad)
 ## Data Used
